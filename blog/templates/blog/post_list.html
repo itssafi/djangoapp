@@ -1,18 +1,13 @@
-<html>
-	<head>
-		<title>Django Application Blog</title>
-	</head>
-	<body>
-		<div>
-    		<h1><a href="/">Django Application Blog</a></h1>
-		</div>
-		{% for post in posts %}
-    	<div>
-        	<h1><a href="">{{ post.title }}</a></h1>
-        	<p><b>Published:</b> {{ post.published_date }}</p>
-        	<p><b>Author:</b> {{ post.author.first_name }} {{ post.author.last_name }}</p>
-        	<p>{{ post.text|linebreaks }}</p>
-    	</div>
-		{% endfor %}
-	</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Welcome to Django Application Blog{% endblock %}
+{% block head %}<center><a href="/">Welcome to Django Application Blog</a></center>{% endblock %}
+{% block content %}
+    {% for post in posts %}
+    <div>
+    	<h1><a href="">{{ post.title }}</a></h1>
+    	<p><b>Published:</b> {{ post.published_date }}</p>
+    	<p><b>Author:</b> {{ post.author.first_name }} {{ post.author.last_name }}</p>
+    	<p>{{ post.text|linebreaks }}</p>
+	</div>
+	{% endfor %}
+{% endblock %}
