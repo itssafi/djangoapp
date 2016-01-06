@@ -1,7 +1,67 @@
 {% extends "base.html" %}
 {% block title %}Welcome to Django{% endblock %}
-{% block head %}Welcome to Django{% endblock %}
 {% block content %}
-    <p>Welcome {{ user.username }} !!!</p>
-    <a href="logout/">Logout</a>
+<body class=" dashboard" data-admin-utc-offset="3600">
+	<!-- Container -->
+	<div id="container">
+    <!-- Header -->
+	    <div id="header">
+    	    <div id="branding">
+				<h1 id="site-name">Welcome to Django Blog Application</h1>
+	        </div>
+	        <div id="user-tools">        
+                Welcome,
+                <strong>{{ user.username }}</strong>.
+                    <a href="/">View site</a> /                
+                <a href="/admin/password_change/">Change password</a> /
+                <a href="/admin/logout/">Log out</a>
+	        </div>
+	    </div>
+    	<!-- END Header -->
+    	<!-- Content -->
+    	<div id="content" class="colMS">
+        	<h1>Site administration</h1>
+			<div id="content-main">
+				<div class="app-auth module">
+        			<table>
+        				<caption>
+	            			<a href="/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
+	    			    </caption>
+			            <tr class="model-group">
+			                <th scope="row"><a href="/admin/auth/group/">Groups</a></th>
+            		        <td><a href="/admin/auth/group/add/" class="addlink">Add</a></td>
+		        	        <td><a href="/admin/auth/group/" class="changelink">Change</a></td>
+			            </tr>
+			            <tr class="model-user">
+			                <th scope="row"><a href="/admin/auth/user/">Users</a></th>
+			                <td><a href="/admin/auth/user/add/" class="addlink">Add</a></td>
+			                <td><a href="/admin/auth/user/" class="changelink">Change</a></td>
+			            </tr>
+			        </table>
+	        	</div>
+		        <div class="app-blog module">
+	    	    <table>
+	        		<caption>
+	            		<a href="/admin/blog/" class="section" title="Models in the Blog application">Blog</a>
+			        </caption>
+	            	<tr class="model-post">
+		                <th scope="row"><a href="/admin/blog/post/">Posts</a></th>
+		                <td><a href="/admin/blog/post/add/" class="addlink">Add</a></td>
+		                <td><a href="/admin/blog/post/" class="changelink">Change</a></td>
+		            </tr>
+	    	    </table>
+        		</div>
+			</div>
+    	</div>
+	</div>
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
 {% endblock %}

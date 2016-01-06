@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 {% block title %}Welcome to Django Application Blog{% endblock %}
-{% block head %}<center><a href="/">Welcome to Django Application Blog</a></center>{% endblock %}
 {% block content %}
+<!-- Container -->
+<div id="container">
+<!-- Header -->
+    <div id="header">
+	    <div id="branding">
+			<h1 id="site-name">Welcome to Django Blog Application</h1>
+        </div>
+        <div id="user-tools">        
+            Welcome,
+            <strong>{{ user.username }}</strong>.
+                <a href="/">View site</a> /                
+            <a href="register/">Register</a> |
+            <a href="accounts/login/">Log in</a>
+        </div>
+    </div>
+</div>
     {% for post in posts %}
     <div>
     	<h1><a href="">{{ post.title }}</a></h1>

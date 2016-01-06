@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block title %}User Registration{% endblock %}
-{% block head %}User Registration{% endblock %}
 {% block content %}
+<!-- Container -->
+    <div id="container">
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">        
+            <h1 id="site-name">User Registration</h1>
+        </div>
+    </div>
     <form method="post" action=".">{% csrf_token %}
         <table border="0">
             {{ form.as_table }}
         </table>
-        <input type="submit" value="Register" />
+        <div class="submit-row">
+        	<label>&nbsp;</label><input type="submit" value="Register" />
+        	<label>&nbsp;</label><a href="login/">Log in</a>
+        </div>
     </form>
-    <a href="login/">Login</a>
 {% endblock %}
