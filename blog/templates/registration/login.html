@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block content %}
-    {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
 <body class=" login" data-admin-utc-offset="3600">
     <!-- Container -->
     <div id="container">
@@ -17,6 +14,9 @@
     <!-- Content -->
     <div id="content" class="colM">
         <div id="content-main">
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
             <form method="post" id="login-form" action=".">{% csrf_token %}
             <!-- <input type='hidden' name='csrfmiddlewaretoken' value='kfQceXXWAhJdSnK5NnFiJxUg90zIfzld'/> -->
         <div class="form-row">

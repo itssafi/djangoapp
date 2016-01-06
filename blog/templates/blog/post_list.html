@@ -8,12 +8,18 @@
 	    <div id="branding">
 			<h1 id="site-name">Welcome to Django Blog Application</h1>
         </div>
-        <div id="user-tools">        
+        <div id="user-tools">
+        	{% if user.username != '' %}
             Welcome,
-            <strong>{{ user.username }}</strong>.
-                <a href="/">View site</a> /                
-            <a href="register/">Register</a> |
-            <a href="accounts/login/">Log in</a>
+            <strong>{{ user.first_name }} {{user.last_name}}</strong>.
+                <a href="/">View site</a> | 
+                <a href="">Change Password</a> | 
+                <a href="logout/">Logout</a>
+            {% else %}
+            	<a href="/">View site</a> | 
+	            <a href="register/">Register</a> |
+    	        <a href="accounts/login/">Log in</a>
+            {% endif %}
         </div>
     </div>
 </div>
