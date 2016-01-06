@@ -11,14 +11,19 @@
         <div id="user-tools">
         	{% if user.username != '' %}
             Welcome,
-            <strong>{{ user.first_name }} {{user.last_name}}</strong>.
-                <a href="/">View site</a> | 
-                <a href="">Change Password</a> | 
-                <a href="logout/">Logout</a>
+            <strong>{{ user.first_name }}</strong>.
+                <a href="/">View blogs</a> | 
+                {% if user.username == 'admin' %}
+                	<a href="/admin/">Home</a>
+                {% else %}
+	                <a href="/user/home/">Home</a> | 
+	            {% endif %}
+                <a href="/user/password_change/">Change Password</a> | 
+                <a href="/user/logout/">Logout</a>
             {% else %}
-            	<a href="/">View site</a> | 
-	            <a href="register/">Register</a> |
-    	        <a href="accounts/login/">Log in</a>
+            	<a href="/">View blogs</a> | 
+	            <a href="user/register/">Register</a> |
+    	        <a href="/user/login/">Log in</a>
             {% endif %}
         </div>
     </div>

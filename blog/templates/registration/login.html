@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Login{% endblock %}
+{% block title %}User Login{% endblock %}
 {% block content %}
-<body class=" login" data-admin-utc-offset="3600">
+<body class="login" data-admin-utc-offset="3600">
     <!-- Container -->
     <div id="container">
     <!-- Header -->
     <div id="header">
         <div id="branding">        
-            <h1 id="site-name"><a href="accounts/login/">User Login</a></h1>
+            <h1 id="site-name"><a href="/user/login/">User Login</a></h1>
         </div>
     </div>
     <!-- END Header -->
@@ -29,7 +29,7 @@
   
     <div class="submit-row">
         <label>&nbsp;</label><input type="submit" value="Log in" />
-        <label>&nbsp;</label><a href="register/">Register</a>
+        <label>&nbsp;</label><a href="/user/register/">Register</a>
     </div>
     </form>
     <script type="text/javascript">

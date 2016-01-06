@@ -11,10 +11,11 @@
 	        </div>
 	        <div id="user-tools">        
                 Welcome,
-                <strong>{{ user.first_name }} {{user.last_name}}</strong>.
-                    <a href="/">View site</a> /                
-                <a href="/admin/password_change/">Change password</a> /
-                <a href="/admin/logout/">Log out</a>
+                <strong>{{ user.first_name }}</strong>.
+                    <a href="/">View blogs</a> | 
+                    <a href="/user/home/">Home</a> | 
+                	<a href="/user/password_change/">Change password</a> | 
+                	<a href="/user/logout/">Log out</a>
 	        </div>
 	    </div>
     	<!-- END Header -->
@@ -25,8 +26,8 @@
 				<div class="app-auth module">
         			<table>
         				<caption>
-	            			<a href="/admin/auth/" class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</a>
-	    			    </caption>
+            				<p class="section" title="Models in the Authentication and Authorization application">Authentication and Authorization</p>
+        				</caption>
 			            <tr class="model-group">
 			                <th scope="row"><a href="/admin/auth/group/">Groups</a></th>
             		        <td><a href="/admin/auth/group/add/" class="addlink">Add</a></td>
@@ -54,14 +55,11 @@
 			</div>
     	</div>
 	</div>
-
         <br class="clear" />
     </div>
     <!-- END Content -->
-
     <div id="footer"></div>
 </div>
 <!-- END Container -->
-
 </body>
 {% endblock %}

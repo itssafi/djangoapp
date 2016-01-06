@@ -8,6 +8,11 @@
         <div id="branding">        
             <h1 id="site-name">User Registration</h1>
         </div>
+        <div id="user-tools">
+        	<a href="/">View blogs</a> | 
+            <a href="/user/register/">Register</a> |
+	        <a href="/user/login/">Log in</a>
+        </div>
     </div>
     <form method="post" action=".">{% csrf_token %}
         <table border="0">
@@ -15,7 +20,7 @@
         </table>
         <div class="submit-row">
         	<label>&nbsp;</label><input type="submit" value="Register" />
-        	<label>&nbsp;</label><a href="login/">Log in</a>
+        	<label>&nbsp;</label><a href="/user/login/">Log in</a>
         </div>
     </form>
 {% endblock %}
