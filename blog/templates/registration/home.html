@@ -22,16 +22,29 @@
     	<!-- Content -->
     	<div id="content" class="colMS">
         	<h1>Post Your Blogs</h1>
+        	<div id="content-user">
+		        <div class="app-blog module">
+	    	    <table width=700>
+	        		<caption>
+	            		<p class="section" title="User Blog application">User Profile</p>
+			        </caption>
+	            	<tr class="model-post">
+		                <th scope="row"><a href="/user/auth/user/change/">{{user.first_name}} {{user.last_name}}</a></th>
+		                <td><a href="/user/auth/user/" class="changelink">Change</a></td>
+		            </tr>
+	    	    </table>
+        		</div>
+			</div>
 			<div id="content-main">
 		        <div class="app-blog module">
 	    	    <table width=700>
 	        		<caption>
-	            		<p href="/admin/blog/" class="section" title="Models in the Blog application">Blog</p>
+	            		<p class="section" title="Models in the Blog application">Blog</p>
 			        </caption>
 	            	<tr class="model-post">
-		                <th scope="row"><a href="/admin/blog/post/">Posts</a></th>
-		                <td><a href="/admin/blog/post/add/" class="addlink">Add</a></td>
-		                <td><a href="/admin/blog/post/" class="changelink">Change</a></td>
+		                <th scope="row"><a href="/user/blog/post/">Posts</a></th>
+		                <td><a href="/user/blog/post/add/" class="addlink">Add</a></td>
+		                <td><a href="/user/blog/post/" class="changelink">Change</a></td>
 		            </tr>
 	    	    </table>
         		</div>

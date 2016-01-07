@@ -14,12 +14,14 @@
             <strong>{{ user.first_name }}</strong>.
                 <a href="/">View blogs</a> | 
                 {% if user.username == 'admin' %}
-                	<a href="/admin/">Home</a>
+                	<a href="/admin/">Home</a> | 
+                    <a href="/admin/password_change/">Change Password</a> | 
+                    <a href="/admin/logout/">Logout</a>
                 {% else %}
 	                <a href="/user/home/">Home</a> | 
+                    <a href="/user/password_change/">Change Password</a> | 
+                    <a href="/user/logout/">Logout</a>
 	            {% endif %}
-                <a href="/user/password_change/">Change Password</a> | 
-                <a href="/user/logout/">Logout</a>
             {% else %}
             	<a href="/">View blogs</a> | 
 	            <a href="user/register/">Register</a> |

@@ -3,13 +3,11 @@ from django.utils import timezone
 from .models import Post
 from blog.forms import *
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django import forms
-from django.utils.translation import ugettext_lazy as _
 
  
 @csrf_protect
@@ -56,5 +54,4 @@ def home(request):
 def post_list(request):
     posts = Post.objects.filter(
     	published_date__lte=timezone.now()).order_by('published_date')
-    # import ipdb; ipdb.set_trace()
     return render(request, 'blog/post_list.html', {'posts': posts})
