@@ -19,4 +19,7 @@ urlpatterns = patterns('',
     url(r'^register/success/$', views.register_success, name='register_success'),
     url(r'^user/home/$', views.home, name='home'),
     url(r'^home/$', views.home, name='home'),
+    url(r'^user/blog/$', views.post, name='post'),
+    url(r'^user/blog/post/$', views.user_post, name='user_post'),
+    url(r'^user/blog/post/add/$', views.blog_post, name='blog_post')
 )

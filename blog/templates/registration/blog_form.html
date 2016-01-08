@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}Add User Blog{% endblock %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.min.js"></script>
+<script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+<body class=" dashboard" data-admin-utc-offset="3600">
+	<!-- Container -->
+	<div id="container">
+    <!-- Header -->
+	    <div id="header">
+    	    <div id="branding">
+				<h1 id="site-name">Welcome to Django Blog Application</h1>
+	        </div>
+	        <div id="user-tools">        
+                Welcome,
+                <strong>{{ user.first_name }}</strong>.
+                    <a href="/">View blogs</a> | 
+                    <a href="/user/home/">Home</a> | 
+                	<a href="/user/password_change/">Change password</a> | 
+                	<a href="/user/logout/">Log out</a>
+	        </div>
+	    </div>
+    	<!-- END Header -->
+    	<div class="breadcrumbs">
+		<a href="/user/home/">Home</a>
+		&rsaquo; <a href="/user/blog/">Blog</a>
+		&rsaquo; <a href="/user/blog/post/">Posts</a>
+		&rsaquo; Add post
+		</div>
+		<!-- Content -->
+    	<div id="content" class="colM">     
+        <h1>Add post</h1>
+        <div id="content-main">
+        	<form enctype="multipart/form-data" action="" method="post" id="post_form" novalidate><input type='hidden' name='csrfmiddlewaretoken' value='Ikelv5X42IcvJ2u1NzAfhFvKrcErfdBl' />
+			<div>
+        		<fieldset class="module aligned ">
+	        		<div class="form-row field-title">
+		                <div>
+			                <label class="required" for="id_title">Title:</label>
+		                        <input class="vTextField" id="id_title" maxlength="200" name="title" type="text" />
+		                </div>
+			        </div>
+			        <div class="form-row field-text">
+		                <div>
+		                    <label class="required" for="id_text">Text:</label>
+								<textarea class="vLargeTextField" cols="40" id="id_text" name="text" rows="10">
+								</textarea>
+						</div>
+			        </div>
+		        <div class="form-row field-created_date">
+		        	<div>
+		        		<label class="required" for="id_created_date_0">Created date:</label>
+							<p class="datetime">Date: <input class="vDateField" id="id_created_date_0" name="created_date_0" size="10" type="text" value="" /><br />Time: <input class="vTimeField" id="id_created_date_1" name="created_date_1" size="8" type="text" value="" /></p><input id="initial-id_created_date_0" name="initial-created_date_0" type="hidden" value="" /><input id="initial-id_created_date_1" name="initial-created_date_1" type="hidden" value="" />
+					</div>
+		        </div>
+		        <div class="form-row field-published_date">
+					<div>
+						<label for="id_published_date_0">Published date:</label>
+		                	<p class="datetime">Date: <input class="vDateField" id="id_published_date_0" name="published_date_0" size="10" type="text" /><br />Time: <input class="vTimeField" id="id_published_date_1" name="published_date_1" size="8" type="text" /></p>
+		            </div>
+		        </div>
+		</fieldset>
+	</div>
+</div>
+<div class="submit-row">
+<input type="submit" value="Save" class="default" name="_save" />
+<input type="submit" value="Save and add another" name="_addanother" />
+<input type="submit" value="Save and continue editing" name="_continue" />
+</div>
+    <script type="text/javascript">
+        (function($) {
+            $(document).ready(function() {
+                $('.add-another').click(function(e) {
+                    e.preventDefault();
+                    var event = $.Event('django:add-another-related');
+                    $(this).trigger(event);
+                    if (!event.isDefaultPrevented()) {
+                        showAddAnotherPopup(this);
+                    }
+                });
+                $('.related-lookup').click(function(e) {
+                    e.preventDefault();
+                    var event = $.Event('django:lookup-related');
+                    $(this).trigger(event);
+                    if (!event.isDefaultPrevented()) {
+                        showRelatedObjectLookupPopup(this);
+                    }
+                });
+                $('body').on('click', '.related-widget-wrapper-link', function(e) {
+                    e.preventDefault();
+                    if (this.href) {
+                        var event = $.Event('django:show-related', {href: this.href});
+                        $(this).trigger(event);
+                        if (!event.isDefaultPrevented()) {
+                            showRelatedObjectPopup(this);
+                        }
+                    }
+                });
+                $('body').on('change', '.related-widget-wrapper select', function(e) {
+                    var event = $.Event('django:update-related');
+                    $(this).trigger(event);
+                    if (!event.isDefaultPrevented()) {
+                        updateRelatedObjectLinks(this);
+                    }
+                });
+                $('.related-widget-wrapper select').trigger('change');
+                $('form#post_form :input:visible:enabled:first').focus()
+            
+            });
+        })(django.jQuery);
+    </script>
+<script type="text/javascript">
+(function($) {
+    var field;
+})(django.jQuery);
+</script>
+</form></div>
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+</body>
+{% endblock %}

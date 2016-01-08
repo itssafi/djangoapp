@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 
- 
+
 @csrf_protect
 def register(request):
     if request.method == 'POST':
@@ -50,8 +50,25 @@ def home(request):
     { 'user': request.user }
     )
 
-
 def post_list(request):
     posts = Post.objects.filter(
     	published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
+
+def blog_post(request):
+    return render_to_response(
+        'registration/blog_form.html',
+        { 'user': request.user }
+        )
+
+def user_post(request):
+    return render_to_response(
+        'registration/user_blogs.html',
+        { 'user': request.user }
+        )
+
+def post(request):
+    return render_to_response(
+        'registration/post.html',
+        { 'user': request.user }
+        )

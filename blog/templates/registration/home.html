@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Welcome to Django{% endblock %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="/static/admin/css/dashboard.css" />
 <body class=" dashboard" data-admin-utc-offset="3600">
 	<!-- Container -->
 	<div id="container">
@@ -29,8 +30,8 @@
 	            		<p class="section" title="User Blog application">User Profile</p>
 			        </caption>
 	            	<tr class="model-post">
-		                <th scope="row"><a href="/user/auth/user/change/">{{user.first_name}} {{user.last_name}}</a></th>
-		                <td><a href="/user/auth/user/" class="changelink">Change</a></td>
+		                <th scope="row"><a href="/user/auth/user/">{{user.first_name}} {{user.last_name}}</a></th>
+		                <td><a href="/user/auth/user/change/" class="changelink">Change</a></td>
 		            </tr>
 	    	    </table>
         		</div>

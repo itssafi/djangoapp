@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}Add User Blog{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="/static/admin/css/changelists.css" />
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.min.js"></script>
+
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function($) {
+        $("tr input.action-select").actions();
+    });
+})(django.jQuery);
+</script>
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+<body class=" app-blog model-post change-list"
+  data-admin-utc-offset="3600">
+	<!-- Container -->
+	<div id="container">
+    <!-- Header -->
+	    <div id="header">
+    	    <div id="branding">
+				<h1 id="site-name">Welcome to Django Blog Application</h1>
+	        </div>
+	        <div id="user-tools">        
+                Welcome,
+                <strong>{{ user.first_name }}</strong>.
+                    <a href="/">View blogs</a> | 
+                    <a href="/user/home/">Home</a> | 
+                	<a href="/user/password_change/">Change password</a> | 
+                	<a href="/user/logout/">Log out</a>
+	        </div>
+	    </div>
+    	<!-- END Header -->
+    	<div class="breadcrumbs">
+		<a href="/user/home/">Home</a>
+		&rsaquo; <a href="/user/blog/">Blog</a>
+		&rsaquo; Posts
+		</div>
+		<!-- Content -->
+	    <div id="content" class="flex">
+    	    <h1>Select post to change</h1>
+			  <div id="content-main">
+		        <ul class="object-tools">
+		            <li>
+		              <a href="/user/blog/post/add/" class="addlink">Add post</a>
+		            </li>
+		        </ul>
+	    <div class="module" id="changelist">
+	<form id="changelist-form" method="post" novalidate><input type='hidden' name='csrfmiddlewaretoken' value='aBIxOumcjGAsLc5cDe5cHavoZ74InOnp' />
+		<div class="actions">
+    		<label>Action: <select name="action">
+				<option value="" selected="selected">---------</option>
+				<option value="delete_selected">Delete selected posts</option>
+				</select></label><input class="select-across" name="select_across" type="hidden" value="0" />
+				<button type="submit" class="button" title="Run the selected action" name="index" value="0">Go</button>
+				<script type="text/javascript">var _actions_icnt="2";</script>
+				<span class="action-counter">0 of 2 selected</span>
+		</div>
+		<div class="results">
+			<table id="result_list">
+			<thead>
+				<tr>
+					<th scope="col"  class="action-checkbox-column">
+					   <div class="text"><span><input type="checkbox" id="action-toggle" /></span></div>
+					   <div class="clear"></div>
+					</th>
+					<th scope="col"  class="column-__str__">
+					   <div class="text"><span>Post</span></div>
+					   <div class="clear"></div>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="row1"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="2" /></td><th class="field-__str__"><a href="/admin/blog/post/2/change/">Test Blog</a></th></tr>
+				<tr class="row2"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="1" /></td><th class="field-__str__"><a href="/admin/blog/post/1/change/">Go to Posts and experiment a little bit</a></th></tr>
+			</tbody>
+			</table>
+		</div>
+		<p class="paginator">
+				2 posts
+		</p>
+		</form>
+	</div>
+</div>
+<br class="clear" />
+    </div>
+    <!-- END Content -->
+    <div id="footer"></div>
+	</div>
+	<!-- END Container -->
+
+{% endblock %}
