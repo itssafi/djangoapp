@@ -11,7 +11,7 @@
         <div id="user-tools">
         	<a href="/">View blogs</a> | 
             <a href="/user/register/">Register</a> |
-	        <a href="/accounts/login/">Log in</a>
+	        <a href="/user/home/">Log in</a>
         </div>
     </div>
     <form method="post" action=".">{% csrf_token %}
@@ -21,7 +21,7 @@
         <table>
             <div class="submit-row">
                 <label>&nbsp;</label><input type="submit" value="Register" />
-                <label>&nbsp;</label><a href="/accounts/login/">Log in</a>
+                <label>&nbsp;</label><a href="/home/">Log in</a>
             </div>
         </table>
     </form>

@@ -43,7 +43,7 @@
     	<div id="content" class="colM">     
         <h1>Add post</h1>
         <div id="content-main">
-        	<form enctype="multipart/form-data" action="" method="post" id="post_form" novalidate><input type='hidden' name='csrfmiddlewaretoken' value='Ikelv5X42IcvJ2u1NzAfhFvKrcErfdBl' />
+        	<form enctype="multipart/form-data" action="" method="post" id="post_form" novalidate>{% csrf_token %}
 			<div>
         		<fieldset class="module aligned ">
 	        		<div class="form-row field-title">

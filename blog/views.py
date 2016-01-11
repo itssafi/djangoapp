@@ -3,11 +3,13 @@ from django.utils import timezone
 from .models import Post
 from blog.forms import *
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout
+from django.contrib.auth import logout, REDIRECT_FIELD_NAME
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
+from django.contrib.auth.views import login
+from django.contrib.auth.forms import AuthenticationForm
 
 
 @csrf_protect
@@ -42,7 +44,13 @@ def register_success(request):
 def logout_page(request):
     logout(request)
     return HttpResponseRedirect('/')
- 
+
+def custom_login(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect('/user/home/')
+    else:
+        return login(request)
+
 @login_required
 def home(request):
     return render_to_response(
@@ -55,18 +63,21 @@ def post_list(request):
     	published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+@csrf_protect
 def blog_post(request):
     return render_to_response(
         'registration/blog_form.html',
         { 'user': request.user }
         )
 
+@csrf_protect
 def user_post(request):
     return render_to_response(
         'registration/user_blogs.html',
         { 'user': request.user }
         )
 
+@csrf_protect
 def post(request):
     return render_to_response(
         'registration/post.html',

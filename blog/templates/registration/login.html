@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block title %}User Login{% endblock %}
 {% block content %}
+<!-- {% if csrf_token != "" or csrf_token != None %}
+    <script type="text/javascript">
+        window.location.href = "/user/home"
+    </script>
+{% endif %} -->
+
 <body class="login" data-admin-utc-offset="3600">
     <!-- Container -->
     <div id="container">
