@@ -14,7 +14,8 @@ urlpatterns = patterns('',
 	url(r'^$', views.post_list, name='post_list'),
     # url(r'^$', 'django.contrib.auth.views.login'),
     url(r'^user/logout/$', views.logout_page, name='logout'),
-    # url(r'^accounts/login/$', 'django.contrib.auth.views.login'), # If user is not login it will redirect to login page
+    # url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    # If user is not login it will redirect to login page
     url(r'^accounts/login/$', views.custom_login, name='login'),
     url(r'^user/register/$', views.register, name='register'),
     url(r'^register/success/$', views.register_success, name='register_success'),

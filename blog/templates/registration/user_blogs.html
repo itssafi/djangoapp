@@ -81,13 +81,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="row1"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="2" /></td><th class="field-__str__"><a href="/admin/blog/post/2/change/">Test Blog</a></th></tr>
-				<tr class="row2"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="1" /></td><th class="field-__str__"><a href="/admin/blog/post/1/change/">Go to Posts and experiment a little bit</a></th></tr>
+				{% for post in posts %}
+				<tr class="row1"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="1" /></td><th class="field-__str__"><a href="/admin/blog/post/1/change/">{{post}}</a></th>
+				</tr>
+				{% endfor %}
 			</tbody>
 			</table>
 		</div>
 		<p class="paginator">
-				2 posts
+				{{post_count}}
+				{% if post_count == 1%}
+					post
+				{% else %}
+					posts
+				{% endif %}
+
 		</p>
 		</form>
 	</div>

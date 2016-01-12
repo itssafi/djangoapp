@@ -63,21 +63,26 @@ def post_list(request):
     	published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
-@csrf_protect
+@login_required
 def blog_post(request):
     return render_to_response(
         'registration/blog_form.html',
         { 'user': request.user }
         )
 
-@csrf_protect
+@login_required
 def user_post(request):
+    # import ipdb; ipdb.set_trace()
+    posts = Post.objects.filter(
+        id=request.user.pk).order_by('published_date')
     return render_to_response(
         'registration/user_blogs.html',
-        { 'user': request.user }
+        {'user': request.user,
+         'posts': posts,
+         'post_count': posts.count()}
         )
 
-@csrf_protect
+@login_required
 def post(request):
     return render_to_response(
         'registration/post.html',
