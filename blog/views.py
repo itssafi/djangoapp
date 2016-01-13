@@ -62,7 +62,7 @@ def home(request):
 
 def post_list(request):
     posts = Post.objects.filter(
-    	published_date__lte=timezone.now()).order_by('published_date')
+    	published_date__lte=timezone.now()).order_by('published_date').reverse()
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 @login_required
@@ -76,7 +76,7 @@ def blog_post(request):
 def user_post(request):
     # import ipdb; ipdb.set_trace()
     posts = Post.objects.filter(
-        id=request.user.pk).order_by('published_date')
+        author_id=request.user.pk).order_by('published_date').reverse()
     return render_to_response(
         'registration/user_blogs.html',
         {'user': request.user,
