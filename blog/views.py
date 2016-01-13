@@ -43,7 +43,7 @@ def register_success(request):
  
 def logout_page(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/user/home/')
 
 def custom_login(request):
     if request.user.is_authenticated():
