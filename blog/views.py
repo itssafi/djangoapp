@@ -47,6 +47,8 @@ def logout_page(request):
 
 def custom_login(request):
     if request.user.is_authenticated():
+        if request.user.username == 'admin':
+            return HttpResponseRedirect('/admin/')
         return HttpResponseRedirect('/user/home/')
     else:
         return login(request)
