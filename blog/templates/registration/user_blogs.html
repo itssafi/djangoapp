@@ -26,7 +26,7 @@
   data-admin-utc-offset="3600">
 	<!-- Container -->
 	<div id="container">
-    <!-- Header -->
+    	<!-- Header -->
 	    <div id="header">
     	    <div id="branding">
 				<h1 id="site-name">Welcome to Django Blog Application</h1>
@@ -42,9 +42,9 @@
 	    </div>
     	<!-- END Header -->
     	<div class="breadcrumbs">
-		<a href="/user/home/">Home</a>
-		&rsaquo; <a href="/user/blog/">Blog</a>
-		&rsaquo; Posts
+			<a href="/user/home/">Home</a>
+			&rsaquo; <a href="/user/blog/">Blog</a>
+			&rsaquo; Posts
 		</div>
 		<!-- Content -->
 	    <div id="content" class="flex">
@@ -56,47 +56,48 @@
 		            </li>
 		        </ul>
 	    <div class="module" id="changelist">
-	<form id="changelist-form" method="post" novalidate><input type='hidden' name='csrfmiddlewaretoken' value='aBIxOumcjGAsLc5cDe5cHavoZ74InOnp' />
-		<div class="actions">
-    		<label>Action: <select name="action">
-				<option value="" selected="selected">---------</option>
-				<option value="delete_selected">Delete selected posts</option>
-				</select></label><input class="select-across" name="select_across" type="hidden" value="0" />
-				<button type="submit" class="button" title="Run the selected action" name="index" value="0">Go</button>
-				<script type="text/javascript">var _actions_icnt="2";</script>
-				<span class="action-counter">0 of 2 selected</span>
-		</div>
-		<div class="results">
-			<table id="result_list">
-			<thead>
-				<tr>
-					<th scope="col"  class="action-checkbox-column">
-					   <div class="text"><span><input type="checkbox" id="action-toggle" /></span></div>
-					   <div class="clear"></div>
-					</th>
-					<th scope="col"  class="column-__str__">
-					   <div class="text"><span>Post</span></div>
-					   <div class="clear"></div>
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for post in posts %}
-				<tr class="row1"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="1" /></td><th class="field-__str__"><a href="/admin/blog/post/1/change/">{{post}}</a></th>
-				</tr>
-				{% endfor %}
-			</tbody>
-			</table>
-		</div>
-		<p class="paginator">
+			<form id="changelist-form" method="post" novalidate><input type='hidden' name='csrfmiddlewaretoken' value='aBIxOumcjGAsLc5cDe5cHavoZ74InOnp' />
+			<div class="actions">
+    			<label>Action: <select name="action">
+					<option value="" selected="selected">---------</option>
+					<option value="delete_selected">Delete selected posts</option>
+					</select>
+				</label>
+				<input class="select-across" name="select_across" type="hidden" value="0" />
+					<button type="submit" class="button" title="Run the selected action" name="index" value="0">Go</button>
+					<script type="text/javascript">var _actions_icnt={{post_count}};</script>
+					<span class="action-counter">0 of {{post_count}} selected</span>
+			</div>
+			<div class="results">
+				<table id="result_list">
+				<thead>
+					<tr>
+						<th scope="col"  class="action-checkbox-column">
+						   <div class="text"><span><input type="checkbox" id="action-toggle" /></span></div>
+						   <div class="clear"></div>
+						</th>
+						<th scope="col"  class="column-__str__">
+						   <div class="text"><span>Post</span></div>
+						   <div class="clear"></div>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for post in posts %}
+					<tr class="row1"><td class="action-checkbox"><input class="action-select" name="_selected_action" type="checkbox" value="1" /></td><th class="field-__str__"><a href="/admin/blog/post/1/change/">{{post}}</a></th>
+					</tr>
+					{% endfor %}
+				</tbody>
+				</table>
+			</div>
+			<p class="paginator">
 				{{post_count}}
 				{% if post_count == 1%}
 					post
 				{% else %}
 					posts
 				{% endif %}
-
-		</p>
+			</p>
 		</form>
 	</div>
 </div>
