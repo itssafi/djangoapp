@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import django.contrib.auth
 
-django.contrib.auth.LOGIN_URL = '/'
+django.contrib.auth.LOGIN_URL = 'user/login'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -124,6 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = '/user/login/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATE_DIRS = (
@@ -132,3 +134,20 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
       os.path.join(os.path.dirname(__file__), 'templates'),
 )
+
+#For email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_HOST_USER = 'user_email@gmail.com'
+
+#Must generate specific password for your app in [gmail settings][1]
+EMAIL_HOST_PASSWORD = 'password'
+
+EMAIL_PORT = 587
+
+#This did the trick
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

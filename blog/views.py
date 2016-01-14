@@ -10,6 +10,12 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.views import login
 from django.contrib.auth.forms import AuthenticationForm
+from .utils import sendmail
+# from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+
+
+email = EmailMessage('Subject', 'Body', to=['safiullashaikh24@gmail.com'])
 
 
 @csrf_protect
@@ -46,6 +52,10 @@ def logout_page(request):
     return HttpResponseRedirect('/user/home/')
 
 def custom_login(request):
+    # sendmail('safiulla.sk@gmail.com', 'Test mail', 'Hello meil')
+    # send_mail('test email', 'hello world',
+    #     'safiulla.sk@gmail.com', ['safiullashaikh24@gmail.com'])
+    # email.send()
     if request.user.is_authenticated():
         if request.user.username == 'admin':
             return HttpResponseRedirect('/admin/')
